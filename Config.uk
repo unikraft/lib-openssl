@@ -1,0 +1,24 @@
+menuconfig LIBOPENSSL
+	bool "Openssl libraries"
+	default n
+
+if LIBOPENSSL
+config LIBSSL
+	bool "ssl - Client and server-side implementations for SSLv3 and TLS"
+	default n
+	select LIBNOLIBC if !HAVE_LIBC
+	select LIBUKDEBUG
+	select LIBUKALLOC
+if LIBSSL
+endif
+
+config LIBCRYPTO
+	bool "crypto - General cryptographic and X.509 support"
+	default n
+	select LIBNOLIBC if !HAVE_LIBC
+	select LIBUKDEBUG
+	select LIBUKALLOC
+if LIBCRYPTO
+endif
+
+endif
