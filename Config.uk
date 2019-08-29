@@ -1,6 +1,7 @@
 menuconfig LIBOPENSSL
 	bool "Openssl libraries"
 	default n
+	select LIBPTHREAD_EMBEDDED
 
 if LIBOPENSSL
 config LIBSSL
@@ -9,6 +10,7 @@ config LIBSSL
 	select LIBNOLIBC if !HAVE_LIBC
 	select LIBUKDEBUG
 	select LIBUKALLOC
+	select LIBCRYPTO
 if LIBSSL
 endif
 
@@ -18,6 +20,12 @@ config LIBCRYPTO
 	select LIBNOLIBC if !HAVE_LIBC
 	select LIBUKDEBUG
 	select LIBUKALLOC
+	select LIBLWIP
+	select LWIP_IPV6
+	select LIBDL
+	select UKUNISTD
+	select POSIX_LIBDL
+	select LIBSYSCALL_SHIM
 if LIBCRYPTO
 endif
 
