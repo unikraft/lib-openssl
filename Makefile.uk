@@ -82,15 +82,15 @@ LIBCRYPTO_CXXINCLUDES            += $(LIBCRYPTO_COMMON_INCLUDES-y)
 ################################################################################
 # Global flags
 ################################################################################
-SUPPRESS_FLAGS += -Wno-unused-parameter \
+LIBOPENSSL_SUPPRESS_FLAGS += -Wno-unused-parameter \
 -Wno-unused-variable -Wno-unused-value -Wno-unused-function \
 -Wno-missing-field-initializers -Wno-implicit-fallthrough
 
-LIBSSL_CFLAGS-y      += $(SUPPRESS_FLAGS) -Wno-pointer-to-int-cast -Wno-int-to-pointer-cast
-LIBSSL_CXXFLAGS-y    += $(SUPPRESS_FLAGS)
+LIBSSL_CFLAGS-y      += $(LIBOPENSSL_SUPPRESS_FLAGS) -Wno-pointer-to-int-cast -Wno-int-to-pointer-cast
+LIBSSL_CXXFLAGS-y    += $(LIBOPENSSL_SUPPRESS_FLAGS)
 
-LIBCRYPTO_CFLAGS-y   += $(SUPPRESS_FLAGS) -Wno-pointer-to-int-cast -Wno-int-to-pointer-cast
-LIBCRYPTO_CXXFLAGS-y += $(SUPPRESS_FLAGS)
+LIBCRYPTO_CFLAGS-y   += $(LIBOPENSSL_SUPPRESS_FLAGS) -Wno-pointer-to-int-cast -Wno-int-to-pointer-cast
+LIBCRYPTO_CXXFLAGS-y += $(LIBOPENSSL_SUPPRESS_FLAGS)
 
 # Extracted from original build
 LIBOPENSSL_DEFINES += -D__STDC_NO_ATOMICS__ -DNO_SYS_UN_H  \
