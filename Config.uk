@@ -22,9 +22,8 @@ config LIBCRYPTO
 	select LIBUKALLOC
 	select LIBLWIP
 	select LWIP_IPV6
-	select LIBDL
-	select UKUNISTD
-	select POSIX_LIBDL
+	select LIBPOSIX_USER
+	select LIBPOSIX_LIBDL
 	select LIBSYSCALL_SHIM
 if LIBCRYPTO
 endif
