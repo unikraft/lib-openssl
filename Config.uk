@@ -21,7 +21,6 @@ config LIBCRYPTO
 	select LIBUKDEBUG
 	select LIBUKALLOC
 	select LIBLWIP
-	select LWIP_IPV6
 	select LIBPOSIX_USER
 	select LIBUKSWRAND
 	select LIBUKSWRAND_DEVFS
