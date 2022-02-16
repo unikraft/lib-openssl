@@ -33,10 +33,10 @@ index e9ce6c9..f1e93d4 100644
   * default, we will try to read at least one of these files
   */
  #  define DEVRANDOM "/dev/urandom", "/dev/random", "/dev/hwrng", "/dev/srandom"
--#  ifdef __linux
+-#  if defined(__linux) && !defined(__ANDROID__)
 +#  if 0
- #   define DEVRANDOM_WAIT "/dev/random"
- #  endif
- # endif
+ #   ifndef DEVRANDOM_WAIT
+ #    define DEVRANDOM_WAIT   "/dev/random"
+ #   endif
 --
 2.11.0
