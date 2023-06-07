@@ -1,0 +1,28 @@
+From fae1c37dc5b748a3d0b7c4fee4e599992f7d4f6f Mon Sep 17 00:00:00 2001
+From: Andrei Tatar <andrei@unikraft.io>
+Date: Mon, 5 Jun 2023 14:28:30 +0200
+Subject: [PATCH] crypto: Remove include of <linux/mman.h>
+
+Unikraft libc implementations provide all necessary declarations in
+<sys/mman.h> and <linux/mman.h> is not available nor necessary.
+
+Signed-off-by: Andrei Tatar <andrei@unikraft.io>
+---
+ crypto/mem_sec.c | 1 -
+ 1 file changed, 1 deletion(-)
+
+diff --git a/crypto/mem_sec.c b/crypto/mem_sec.c
+index 9e0f6702..4ce0875c 100644
+--- a/crypto/mem_sec.c
++++ b/crypto/mem_sec.c
+@@ -30,7 +30,6 @@
+ # if defined(OPENSSL_SYS_LINUX)
+ #  include <sys/syscall.h>
+ #  if defined(SYS_mlock2)
+-#   include <linux/mman.h>
+ #   include <errno.h>
+ #  endif
+ # endif
+-- 
+2.40.1
+
