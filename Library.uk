@@ -1,0 +1,6 @@
+name        := "openssl"
+description := "A robust, commercial-grade TLS/SSL and full-strength general purpose cryptographic library."
+gitrepo     := "https://github.com/openssl/openssl.git"
+homepage    := "https://www.openssl.org/"
+version     := 1.1.1c sha256:f6fb3079ad15076154eda9413fed42877d668e7069d9b87396d0804fdb3f4c90 https://www.openssl.org/source/old/1.1.1/openssl-1.1.1c.tar.gz
+license     := "Apache-2.0"
