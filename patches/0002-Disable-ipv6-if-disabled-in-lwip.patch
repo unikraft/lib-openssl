@@ -1,0 +1,18 @@
+diff --git a/include/internal/sockets.h b/include/internal/sockets.h
+index 39186ef..ca0f71d 100644
+--- a/include/internal/sockets.h
++++ b/include/internal/sockets.h
+@@ -107,6 +107,13 @@ struct servent *PASCAL getservbyname(const char *, const char *);
+ #  endif
+ # endif
+ 
++/* lwip defined AF_INET6 as AF_UNSPEC if IPv6 is disabled. However, OpenSSL
++ * expects the definition to be non-existent in that case.
++ */
++# if defined(AF_INET6) && defined(AF_UNSPEC) && (AF_INET6 == AF_UNSPEC)
++#  undef AF_INET6
++# endif
++
+ /*
+  * Some IPv6 implementations are broken, you can disable them in known
+  * bad versions.
