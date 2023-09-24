@@ -849,7 +849,7 @@ $(LIBOPENSSL_EXTRACTED)/crypto/buildinf.h: $(LIBOPENSSL_EXTRACTED)/.configured
 LIBOPENSSL_GENERATED_HEADERS = \
 	$(LIBOPENSSL_EXTRACTED)/include/crypto/bn_conf.h \
 	$(LIBOPENSSL_EXTRACTED)/include/crypto/dso_conf.h \
-	$(LIBOPENSSL_EXTRACTED)/include/openssl/opensslconf.h \
+	$(LIBOPENSSL_EXTRACTED)/include/openssl/crypto.h \
 	$(LIBOPENSSL_EXTRACTED)/crypto/buildinf.h
 $(LIBOPENSSL_EXTRACTED)/.generated_headers: $(LIBOPENSSL_GENERATED_HEADERS) 
 	$(call verbose_cmd,GEN,libssl: $(notdir $@), \
