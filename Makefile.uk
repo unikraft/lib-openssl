@@ -42,10 +42,10 @@ $(eval $(call addlib_s,libopensslglue,$(CONFIG_LIBOPENSSL)))
 ################################################################################
 # Original sources
 ################################################################################
-LIBOPENSSL_MAJOR=1.1.1
-LIBOPENSSL_MINOR=c
+LIBOPENSSL_MAJOR=3.1.3
+LIBOPENSSL_MINOR=
 LIBOPENSSL_VERSION=$(LIBOPENSSL_MAJOR)$(LIBOPENSSL_MINOR)
-LIBOPENSSL_URL=https://www.openssl.org/source/old/$(LIBOPENSSL_MAJOR)/openssl-$(LIBOPENSSL_VERSION).tar.gz
+LIBOPENSSL_URL=https://www.openssl.org/source/openssl-$(LIBOPENSSL_VERSION).tar.gz
 LIBOPENSSL_PATCHDIR=$(LIBSSL_BASE)/patches
 LIBOPENSSL_SUBDIR=openssl-$(LIBOPENSSL_VERSION)
 $(eval $(call fetch,libssl,$(LIBOPENSSL_URL)))
@@ -826,18 +826,18 @@ LIBCRYPTO_SRCS-y += $(LIBOPENSSL_EXTRACTED)/crypto/x86_64cpuid.s
 # Run ./config
 $(LIBOPENSSL_EXTRACTED)/.configured: $(LIBSSL_BUILD)/.origin
 	$(call verbose_cmd,CONFIG,libssl: $(notdir $@), \
-		cd $(LIBOPENSSL_EXTRACTED) && ./config && touch $@)
+		cd $(LIBOPENSSL_EXTRACTED) && ./.Configure && touch $@)
 
 # Generate headers
-$(LIBOPENSSL_EXTRACTED)/crypto/include/internal/bn_conf.h: $(LIBOPENSSL_EXTRACTED)/crypto/include/internal/bn_conf.h.in $(LIBOPENSSL_EXTRACTED)/.configured
+$(LIBOPENSSL_EXTRACTED)/include/crypto/bn_conf.h: $(LIBOPENSSL_EXTRACTED)/include/crypto/bn_conf.h.in $(LIBOPENSSL_EXTRACTED)/.configured
 	$(call verbose_cmd,GEN,libssl: $(notdir $@), \
 		cd $(LIBOPENSSL_EXTRACTED) && /usr/bin/perl "-I." -Mconfigdata "util/dofile.pl" "-oMakefile" $< > $@)
 
-$(LIBOPENSSL_EXTRACTED)/crypto/include/internal/dso_conf.h: $(LIBOPENSSL_EXTRACTED)/crypto/include/internal/dso_conf.h.in $(LIBOPENSSL_EXTRACTED)/.configured
+$(LIBOPENSSL_EXTRACTED)/include/crypto/dso_conf.h: $(LIBOPENSSL_EXTRACTED)/include/crypto/dso_conf.h.in $(LIBOPENSSL_EXTRACTED)/.configured
 	$(call verbose_cmd,GEN,libssl: $(notdir $@), \
 		cd $(LIBOPENSSL_EXTRACTED) && /usr/bin/perl "-I." -Mconfigdata "util/dofile.pl" "-oMakefile" $< > $@)
 
-$(LIBOPENSSL_EXTRACTED)/include/openssl/opensslconf.h: $(LIBOPENSSL_EXTRACTED)/include/openssl/opensslconf.h.in $(LIBOPENSSL_EXTRACTED)/.configured
+$(LIBOPENSSL_EXTRACTED)/include/openssl/crypto.h: $(LIBOPENSSL_EXTRACTED)/include/openssl/crypto.h.in $(LIBOPENSSL_EXTRACTED)/.configured
 	$(call verbose_cmd,GEN,libssl: $(notdir $@), \
 		cd $(LIBOPENSSL_EXTRACTED) && /usr/bin/perl "-I." -Mconfigdata "util/dofile.pl" "-oMakefile" $< > $@)
 
@@ -847,8 +847,8 @@ $(LIBOPENSSL_EXTRACTED)/crypto/buildinf.h: $(LIBOPENSSL_EXTRACTED)/.configured
 
 # Barrier rule
 LIBOPENSSL_GENERATED_HEADERS = \
-	$(LIBOPENSSL_EXTRACTED)/crypto/include/internal/bn_conf.h \
-	$(LIBOPENSSL_EXTRACTED)/crypto/include/internal/dso_conf.h \
+	$(LIBOPENSSL_EXTRACTED)/include/crypto/bn_conf.h \
+	$(LIBOPENSSL_EXTRACTED)/include/crypto/dso_conf.h \
 	$(LIBOPENSSL_EXTRACTED)/include/openssl/opensslconf.h \
 	$(LIBOPENSSL_EXTRACTED)/crypto/buildinf.h
 $(LIBOPENSSL_EXTRACTED)/.generated_headers: $(LIBOPENSSL_GENERATED_HEADERS) 
@@ -917,11 +917,10 @@ $(LIBOPENSSL_EXTRACTED)/crypto/whrlpool/wp-x86_64.s: $(LIBOPENSSL_EXTRACTED)/cry
 $(LIBOPENSSL_EXTRACTED)/crypto/x86_64cpuid.s: $(LIBOPENSSL_EXTRACTED)/crypto/x86_64cpuid.pl $(LIBOPENSSL_EXTRACTED)/.generated_headers
 	$(call verbose_cmd,GEN,libssl: $(notdir $@), cd $(LIBOPENSSL_EXTRACTED) && CC="gcc" /usr/bin/perl $< elf $@)
 
-
 LIBOPENSSL_PREPARED_DEPS = \
 	$(LIBOPENSSL_EXTRACTED)/.configured \
-	$(LIBOPENSSL_EXTRACTED)/crypto/include/internal/bn_conf.h \
-	$(LIBOPENSSL_EXTRACTED)/crypto/include/internal/dso_conf.h \
+	$(LIBOPENSSL_EXTRACTED)/include/crypto/bn_conf.h \
+	$(LIBOPENSSL_EXTRACTED)/include/crypto/dso_conf.h \
 	$(LIBOPENSSL_EXTRACTED)/include/openssl/opensslconf.h \
 	$(LIBOPENSSL_EXTRACTED)/crypto/buildinf.h \
 	$(LIBOPENSSL_EXTRACTED)/crypto/aes/aes-x86_64.s \
