@@ -830,16 +830,140 @@ $(LIBOPENSSL_EXTRACTED)/.configured: $(LIBSSL_BUILD)/.origin
 
 # Generate headers
 $(LIBOPENSSL_EXTRACTED)/include/crypto/bn_conf.h: $(LIBOPENSSL_EXTRACTED)/include/crypto/bn_conf.h.in $(LIBOPENSSL_EXTRACTED)/.configured
-	$(call verbose_cmd,GEN,libssl: $(notdir $@), \
-		cd $(LIBOPENSSL_EXTRACTED) && /usr/bin/perl "-I." -Mconfigdata "util/dofile.pl" "-oMakefile" $< > $@)
+    $(call verbose_cmd,GEN,libssl: $(notdir $@), \
+        cd $(LIBOPENSSL_EXTRACTED) && /usr/bin/perl "-I." -Mconfigdata "util/dofile.pl" "-oMakefile" $< > $@)
 
 $(LIBOPENSSL_EXTRACTED)/include/crypto/dso_conf.h: $(LIBOPENSSL_EXTRACTED)/include/crypto/dso_conf.h.in $(LIBOPENSSL_EXTRACTED)/.configured
-	$(call verbose_cmd,GEN,libssl: $(notdir $@), \
-		cd $(LIBOPENSSL_EXTRACTED) && /usr/bin/perl "-I." -Mconfigdata "util/dofile.pl" "-oMakefile" $< > $@)
+    $(call verbose_cmd,GEN,libssl: $(notdir $@), \
+        cd $(LIBOPENSSL_EXTRACTED) && /usr/bin/perl "-I." -Mconfigdata "util/dofile.pl" "-oMakefile" $< > $@)
+
+$(LIBOPENSSL_EXTRACTED)/include/openssl/asn1.h: $(LIBOPENSSL_EXTRACTED)/include/openssl/asn1.h.in $(LIBOPENSSL_EXTRACTED)/.configured
+    $(call verbose_cmd,GEN,libssl: $(notdir $@), \
+        cd $(LIBOPENSSL_EXTRACTED) && /usr/bin/perl "-I." -Mconfigdata "util/dofile.pl" "-oMakefile" $< > $@)
+
+$(LIBOPENSSL_EXTRACTED)/include/openssl/asn1t.h: $(LIBOPENSSL_EXTRACTED)/include/openssl/asn1t.h.in $(LIBOPENSSL_EXTRACTED)/.configured
+    $(call verbose_cmd,GEN,libssl: $(notdir $@), \
+        cd $(LIBOPENSSL_EXTRACTED) && /usr/bin/perl "-I." -Mconfigdata "util/dofile.pl" "-oMakefile" $< > $@)
+
+$(LIBOPENSSL_EXTRACTED)/include/openssl/bio.h: $(LIBOPENSSL_EXTRACTED)/include/openssl/bio.h.in $(LIBOPENSSL_EXTRACTED)/.configured
+    $(call verbose_cmd,GEN,libssl: $(notdir $@), \
+        cd $(LIBOPENSSL_EXTRACTED) && /usr/bin/perl "-I." -Mconfigdata "util/dofile.pl" "-oMakefile" $< > $@)
+
+$(LIBOPENSSL_EXTRACTED)/include/openssl/cmp.h: $(LIBOPENSSL_EXTRACTED)/include/openssl/cmp.h.in $(LIBOPENSSL_EXTRACTED)/.configured
+    $(call verbose_cmd,GEN,libssl: $(notdir $@), \
+        cd $(LIBOPENSSL_EXTRACTED) && /usr/bin/perl "-I." -Mconfigdata "util/dofile.pl" "-oMakefile" $< > $@)
+
+$(LIBOPENSSL_EXTRACTED)/include/openssl/cms.h: $(LIBOPENSSL_EXTRACTED)/include/openssl/cms.h.in $(LIBOPENSSL_EXTRACTED)/.configured
+    $(call verbose_cmd,GEN,libssl: $(notdir $@), \
+        cd $(LIBOPENSSL_EXTRACTED) && /usr/bin/perl "-I." -Mconfigdata "util/dofile.pl" "-oMakefile" $< > $@)
+
+$(LIBOPENSSL_EXTRACTED)/include/openssl/conf.h: $(LIBOPENSSL_EXTRACTED)/include/openssl/conf.h.in $(LIBOPENSSL_EXTRACTED)/.configured
+    $(call verbose_cmd,GEN,libssl: $(notdir $@), \
+        cd $(LIBOPENSSL_EXTRACTED) && /usr/bin/perl "-I." -Mconfigdata "util/dofile.pl" "-oMakefile" $< > $@)
+
+$(LIBOPENSSL_EXTRACTED)/include/openssl/configuration.h: $(LIBOPENSSL_EXTRACTED)/include/openssl/configuration.h.in $(LIBOPENSSL_EXTRACTED)/.configured
+    $(call verbose_cmd,GEN,libssl: $(notdir $@), \
+        cd $(LIBOPENSSL_EXTRACTED) && /usr/bin/perl "-I." -Mconfigdata "util/dofile.pl" "-oMakefile" $< > $@)
+
+$(LIBOPENSSL_EXTRACTED)/include/openssl/crmf.h: $(LIBOPENSSL_EXTRACTED)/include/openssl/crmf.h.in $(LIBOPENSSL_EXTRACTED)/.configured
+    $(call verbose_cmd,GEN,libssl: $(notdir $@), \
+        cd $(LIBOPENSSL_EXTRACTED) && /usr/bin/perl "-I." -Mconfigdata "util/dofile.pl" "-oMakefile" $< > $@)
 
 $(LIBOPENSSL_EXTRACTED)/include/openssl/crypto.h: $(LIBOPENSSL_EXTRACTED)/include/openssl/crypto.h.in $(LIBOPENSSL_EXTRACTED)/.configured
-	$(call verbose_cmd,GEN,libssl: $(notdir $@), \
-		cd $(LIBOPENSSL_EXTRACTED) && /usr/bin/perl "-I." -Mconfigdata "util/dofile.pl" "-oMakefile" $< > $@)
+    $(call verbose_cmd,GEN,libssl: $(notdir $@), \
+        cd $(LIBOPENSSL_EXTRACTED) && /usr/bin/perl "-I." -Mconfigdata "util/dofile.pl" "-oMakefile" $< > $@)
+
+$(LIBOPENSSL_EXTRACTED)/include/openssl/ct.h: $(LIBOPENSSL_EXTRACTED)/include/openssl/ct.h.in $(LIBOPENSSL_EXTRACTED)/.configured
+    $(call verbose_cmd,GEN,libssl: $(notdir $@), \
+        cd $(LIBOPENSSL_EXTRACTED) && /usr/bin/perl "-I." -Mconfigdata "util/dofile.pl" "-oMakefile" $< > $@)
+
+$(LIBOPENSSL_EXTRACTED)/include/openssl/err.h: $(LIBOPENSSL_EXTRACTED)/include/openssl/err.h.in $(LIBOPENSSL_EXTRACTED)/.configured
+    $(call verbose_cmd,GEN,libssl: $(notdir $@), \
+        cd $(LIBOPENSSL_EXTRACTED) && /usr/bin/perl "-I." -Mconfigdata "util/dofile.pl" "-oMakefile" $< > $@)
+
+$(LIBOPENSSL_EXTRACTED)/include/openssl/ess.h: $(LIBOPENSSL_EXTRACTED)/include/openssl/ess.h.in $(LIBOPENSSL_EXTRACTED)/.configured
+    $(call verbose_cmd,GEN,libssl: $(notdir $@), \
+        cd $(LIBOPENSSL_EXTRACTED) && /usr/bin/perl "-I." -Mconfigdata "util/dofile.pl" "-oMakefile" $< > $@)
+
+$(LIBOPENSSL_EXTRACTED)/include/openssl/fipskey.h: $(LIBOPENSSL_EXTRACTED)/include/openssl/fipskey.h.in $(LIBOPENSSL_EXTRACTED)/.configured
+    $(call verbose_cmd,GEN,libssl: $(notdir $@), \
+        cd $(LIBOPENSSL_EXTRACTED) && /usr/bin/perl "-I." -Mconfigdata "util/dofile.pl" "-oMakefile" $< > $@)
+
+$(LIBOPENSSL_EXTRACTED)/include/openssl/lhash.h: $(LIBOPENSSL_EXTRACTED)/include/openssl/lhash.h.in $(LIBOPENSSL_EXTRACTED)/.configured
+    $(call verbose_cmd,GEN,libssl: $(notdir $@), \
+        cd $(LIBOPENSSL_EXTRACTED) && /usr/bin/perl "-I." -Mconfigdata "util/dofile.pl" "-oMakefile" $< > $@)
+
+$(LIBOPENSSL_EXTRACTED)/include/openssl/ocsp.h: $(LIBOPENSSL_EXTRACTED)/include/openssl/ocsp.h.in $(LIBOPENSSL_EXTRACTED)/.configured
+    $(call verbose_cmd,GEN,libssl: $(notdir $@), \
+        cd $(LIBOPENSSL_EXTRACTED) && /usr/bin/perl "-I." -Mconfigdata "util/dofile.pl" "-oMakefile" $< > $@)
+
+$(LIBOPENSSL_EXTRACTED)/include/openssl/opensslv.h: $(LIBOPENSSL_EXTRACTED)/include/openssl/opensslv.h.in $(LIBOPENSSL_EXTRACTED)/.configured
+    $(call verbose_cmd,GEN,libssl: $(notdir $@), \
+        cd $(LIBOPENSSL_EXTRACTED) && /usr/bin/perl "-I." -Mconfigdata "util/dofile.pl" "-oMakefile" $< > $@)
+
+$(LIBOPENSSL_EXTRACTED)/include/openssl/pkcs12.h: $(LIBOPENSSL_EXTRACTED)/include/openssl/pkcs12.h.in $(LIBOPENSSL_EXTRACTED)/.configured
+    $(call verbose_cmd,GEN,libssl: $(notdir $@), \
+        cd $(LIBOPENSSL_EXTRACTED) && /usr/bin/perl "-I." -Mconfigdata "util/dofile.pl" "-oMakefile" $< > $@)
+
+$(LIBOPENSSL_EXTRACTED)/include/openssl/pkcs7.h: $(LIBOPENSSL_EXTRACTED)/include/openssl/pkcs7.h.in $(LIBOPENSSL_EXTRACTED)/.configured
+    $(call verbose_cmd,GEN,libssl: $(notdir $@), \
+        cd $(LIBOPENSSL_EXTRACTED) && /usr/bin/perl "-I." -Mconfigdata "util/dofile.pl" "-oMakefile" $< > $@)
+
+$(LIBOPENSSL_EXTRACTED)/include/openssl/safestack.h: $(LIBOPENSSL_EXTRACTED)/include/openssl/safestack.h.in $(LIBOPENSSL_EXTRACTED)/.configured
+    $(call verbose_cmd,GEN,libssl: $(notdir $@), \
+        cd $(LIBOPENSSL_EXTRACTED) && /usr/bin/perl "-I." -Mconfigdata "util/dofile.pl" "-oMakefile" $< > $@)
+
+$(LIBOPENSSL_EXTRACTED)/include/openssl/srp.h: $(LIBOPENSSL_EXTRACTED)/include/openssl/srp.h.in $(LIBOPENSSL_EXTRACTED)/.configured
+    $(call verbose_cmd,GEN,libssl: $(notdir $@), \
+        cd $(LIBOPENSSL_EXTRACTED) && /usr/bin/perl "-I." -Mconfigdata "util/dofile.pl" "-oMakefile" $< > $@)
+
+$(LIBOPENSSL_EXTRACTED)/include/openssl/ssl.h: $(LIBOPENSSL_EXTRACTED)/include/openssl/ssl.h.in $(LIBOPENSSL_EXTRACTED)/.configured
+    $(call verbose_cmd,GEN,libssl: $(notdir $@), \
+        cd $(LIBOPENSSL_EXTRACTED) && /usr/bin/perl "-I." -Mconfigdata "util/dofile.pl" "-oMakefile" $< > $@)
+
+$(LIBOPENSSL_EXTRACTED)/include/openssl/ui.h: $(LIBOPENSSL_EXTRACTED)/include/openssl/ui.h.in $(LIBOPENSSL_EXTRACTED)/.configured
+    $(call verbose_cmd,GEN,libssl: $(notdir $@), \
+        cd $(LIBOPENSSL_EXTRACTED) && /usr/bin/perl "-I." -Mconfigdata "util/dofile.pl" "-oMakefile" $< > $@)
+
+$(LIBOPENSSL_EXTRACTED)/include/openssl/x509.h: $(LIBOPENSSL_EXTRACTED)/include/openssl/x509.h.in $(LIBOPENSSL_EXTRACTED)/.configured
+    $(call verbose_cmd,GEN,libssl: $(notdir $@), \
+        cd $(LIBOPENSSL_EXTRACTED) && /usr/bin/perl "-I." -Mconfigdata "util/dofile.pl" "-oMakefile" $< > $@)
+
+$(LIBOPENSSL_EXTRACTED)/include/openssl/x509_vfy.h: $(LIBOPENSSL_EXTRACTED)/include/openssl/x509_vfy.h.in $(LIBOPENSSL_EXTRACTED)/.configured
+    $(call verbose_cmd,GEN,libssl: $(notdir $@), \
+        cd $(LIBOPENSSL_EXTRACTED) && /usr/bin/perl "-I." -Mconfigdata "util/dofile.pl" "-oMakefile" $< > $@)
+
+$(LIBOPENSSL_EXTRACTED)/include/openssl/x509v3.h: $(LIBOPENSSL_EXTRACTED)/include/openssl/x509v3.h.in $(LIBOPENSSL_EXTRACTED)/.configured
+    $(call verbose_cmd,GEN,libssl: $(notdir $@), \
+        cd $(LIBOPENSSL_EXTRACTED) && /usr/bin/perl "-I." -Mconfigdata "util/dofile.pl" "-oMakefile" $< > $@)
+
+$(LIBOPENSSL_EXTRACTED)/providers/common/include/prov/der_digests.h: $(LIBOPENSSL_EXTRACTED)/providers/common/include/prov/der_digests.h.in $(LIBOPENSSL_EXTRACTED)/.configured
+    $(call verbose_cmd,GEN,libssl: $(notdir $@), \
+        cd $(LIBOPENSSL_EXTRACTED) && /usr/bin/perl "-I." -Mconfigdata "util/dofile.pl" "-oMakefile" $< > $@)
+
+$(LIBOPENSSL_EXTRACTED)/providers/common/include/prov/der_dsa.h: $(LIBOPENSSL_EXTRACTED)/providers/common/include/prov/der_dsa.h.in $(LIBOPENSSL_EXTRACTED)/.configured
+    $(call verbose_cmd,GEN,libssl: $(notdir $@), \
+        cd $(LIBOPENSSL_EXTRACTED) && /usr/bin/perl "-I." -Mconfigdata "util/dofile.pl" "-oMakefile" $< > $@)
+
+$(LIBOPENSSL_EXTRACTED)/providers/common/include/prov/der_ec.h: $(LIBOPENSSL_EXTRACTED)/providers/common/include/prov/der_ec.h.in $(LIBOPENSSL_EXTRACTED)/.configured
+    $(call verbose_cmd,GEN,libssl: $(notdir $@), \
+        cd $(LIBOPENSSL_EXTRACTED) && /usr/bin/perl "-I." -Mconfigdata "util/dofile.pl" "-oMakefile" $< > $@)
+
+$(LIBOPENSSL_EXTRACTED)/providers/common/include/prov/der_ecx.h: $(LIBOPENSSL_EXTRACTED)/providers/common/include/prov/der_ecx.h.in $(LIBOPENSSL_EXTRACTED)/.configured
+    $(call verbose_cmd,GEN,libssl: $(notdir $@), \
+        cd $(LIBOPENSSL_EXTRACTED) && /usr/bin/perl "-I." -Mconfigdata "util/dofile.pl" "-oMakefile" $< > $@)
+
+$(LIBOPENSSL_EXTRACTED)/providers/common/include/prov/der_rsa.h: $(LIBOPENSSL_EXTRACTED)/providers/common/include/prov/der_rsa.h.in $(LIBOPENSSL_EXTRACTED)/.configured
+    $(call verbose_cmd,GEN,libssl: $(notdir $@), \
+        cd $(LIBOPENSSL_EXTRACTED) && /usr/bin/perl "-I." -Mconfigdata "util/dofile.pl" "-oMakefile" $< > $@)
+
+$(LIBOPENSSL_EXTRACTED)/providers/common/include/prov/der_sm2.h: $(LIBOPENSSL_EXTRACTED)/providers/common/include/prov/der_sm2.h.in $(LIBOPENSSL_EXTRACTED)/.configured
+    $(call verbose_cmd,GEN,libssl: $(notdir $@), \
+        cd $(LIBOPENSSL_EXTRACTED) && /usr/bin/perl "-I." -Mconfigdata "util/dofile.pl" "-oMakefile" $< > $@)
+
+$(LIBOPENSSL_EXTRACTED)/providers/common/include/prov/der_wrap.h: $(LIBOPENSSL_EXTRACTED)/providers/common/include/prov/der_wrap.h.in $(LIBOPENSSL_EXTRACTED)/.configured
+    $(call verbose_cmd,GEN,libssl: $(notdir $@), \
+        cd $(LIBOPENSSL_EXTRACTED) && /usr/bin/perl "-I." -Mconfigdata "util/dofile.pl" "-oMakefile" $< > $@)
 
 $(LIBOPENSSL_EXTRACTED)/crypto/buildinf.h: $(LIBOPENSSL_EXTRACTED)/.configured
 	$(call verbose_cmd,GEN,libssl: $(notdir $@), \
@@ -849,7 +973,38 @@ $(LIBOPENSSL_EXTRACTED)/crypto/buildinf.h: $(LIBOPENSSL_EXTRACTED)/.configured
 LIBOPENSSL_GENERATED_HEADERS = \
 	$(LIBOPENSSL_EXTRACTED)/include/crypto/bn_conf.h \
 	$(LIBOPENSSL_EXTRACTED)/include/crypto/dso_conf.h \
+	$(LIBOPENSSL_EXTRACTED)/include/openssl/asn1.h \
+	$(LIBOPENSSL_EXTRACTED)/include/openssl/asn1t.h \
+	$(LIBOPENSSL_EXTRACTED)/include/openssl/bio.h \
+	$(LIBOPENSSL_EXTRACTED)/include/openssl/cmp.h \
+	$(LIBOPENSSL_EXTRACTED)/include/openssl/cms.h \
+	$(LIBOPENSSL_EXTRACTED)/include/openssl/conf.h \
+	$(LIBOPENSSL_EXTRACTED)/include/openssl/configuration.h \
+	$(LIBOPENSSL_EXTRACTED)/include/openssl/crmf.h \
 	$(LIBOPENSSL_EXTRACTED)/include/openssl/crypto.h \
+	$(LIBOPENSSL_EXTRACTED)/include/openssl/ct.h \
+	$(LIBOPENSSL_EXTRACTED)/include/openssl/err.h \
+	$(LIBOPENSSL_EXTRACTED)/include/openssl/ess.h \
+	$(LIBOPENSSL_EXTRACTED)/include/openssl/fipskey.h \
+	$(LIBOPENSSL_EXTRACTED)/include/openssl/lhash.h \
+	$(LIBOPENSSL_EXTRACTED)/include/openssl/ocsp.h \
+	$(LIBOPENSSL_EXTRACTED)/include/openssl/opensslv.h \
+	$(LIBOPENSSL_EXTRACTED)/include/openssl/pkcs12.h \
+	$(LIBOPENSSL_EXTRACTED)/include/openssl/pkcs7.h \
+	$(LIBOPENSSL_EXTRACTED)/include/openssl/safestack.h \
+	$(LIBOPENSSL_EXTRACTED)/include/openssl/srp.h \
+	$(LIBOPENSSL_EXTRACTED)/include/openssl/ssl.h \
+	$(LIBOPENSSL_EXTRACTED)/include/openssl/ui.h \
+	$(LIBOPENSSL_EXTRACTED)/include/openssl/x509.h \
+	$(LIBOPENSSL_EXTRACTED)/include/openssl/x509_vfy.h \
+	$(LIBOPENSSL_EXTRACTED)/include/openssl/x509v3.h \
+	$(LIBOPENSSL_EXTRACTED)/providers/common/include/prov/der_digests.h \
+	$(LIBOPENSSL_EXTRACTED)/providers/common/include/prov/der_dsa.h \
+	$(LIBOPENSSL_EXTRACTED)/providers/common/include/prov/der_ec.h \
+	$(LIBOPENSSL_EXTRACTED)/providers/common/include/prov/der_ecx.h \
+	$(LIBOPENSSL_EXTRACTED)/providers/common/include/prov/der_rsa.h \
+	$(LIBOPENSSL_EXTRACTED)/providers/common/include/prov/der_sm2.h \
+	$(LIBOPENSSL_EXTRACTED)/providers/common/include/prov/der_wrap.h \
 	$(LIBOPENSSL_EXTRACTED)/crypto/buildinf.h
 $(LIBOPENSSL_EXTRACTED)/.generated_headers: $(LIBOPENSSL_GENERATED_HEADERS) 
 	$(call verbose_cmd,GEN,libssl: $(notdir $@), \
