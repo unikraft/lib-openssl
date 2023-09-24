@@ -826,7 +826,7 @@ LIBCRYPTO_SRCS-y += $(LIBOPENSSL_EXTRACTED)/crypto/x86_64cpuid.s
 # Run ./config
 $(LIBOPENSSL_EXTRACTED)/.configured: $(LIBSSL_BUILD)/.origin
 	$(call verbose_cmd,CONFIG,libssl: $(notdir $@), \
-		cd $(LIBOPENSSL_EXTRACTED) && ./.Configure && touch $@)
+		cd $(LIBOPENSSL_EXTRACTED) && ./config && touch $@)
 
 # Generate headers
 $(LIBOPENSSL_EXTRACTED)/include/crypto/bn_conf.h: $(LIBOPENSSL_EXTRACTED)/include/crypto/bn_conf.h.in $(LIBOPENSSL_EXTRACTED)/.configured
