@@ -998,13 +998,6 @@ LIBOPENSSL_GENERATED_HEADERS = \
 	$(LIBOPENSSL_EXTRACTED)/include/openssl/x509.h \
 	$(LIBOPENSSL_EXTRACTED)/include/openssl/x509_vfy.h \
 	$(LIBOPENSSL_EXTRACTED)/include/openssl/x509v3.h \
-	$(LIBOPENSSL_EXTRACTED)/providers/common/include/prov/der_digests.h \
-	$(LIBOPENSSL_EXTRACTED)/providers/common/include/prov/der_dsa.h \
-	$(LIBOPENSSL_EXTRACTED)/providers/common/include/prov/der_ec.h \
-	$(LIBOPENSSL_EXTRACTED)/providers/common/include/prov/der_ecx.h \
-	$(LIBOPENSSL_EXTRACTED)/providers/common/include/prov/der_rsa.h \
-	$(LIBOPENSSL_EXTRACTED)/providers/common/include/prov/der_sm2.h \
-	$(LIBOPENSSL_EXTRACTED)/providers/common/include/prov/der_wrap.h \
 	$(LIBOPENSSL_EXTRACTED)/crypto/buildinf.h
 $(LIBOPENSSL_EXTRACTED)/.generated_headers: $(LIBOPENSSL_GENERATED_HEADERS) 
 	$(call verbose_cmd,GEN,libssl: $(notdir $@), \
